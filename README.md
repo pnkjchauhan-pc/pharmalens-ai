@@ -1,435 +1,281 @@
 # PharmaLens AI
 
-### AI-Powered Molecular Analysis & Drug Discovery Platform
+An interactive AI-assisted chemoinformatics and drug discovery platform built with Python, RDKit, Pandas, NumPy, Plotly, and Streamlit.
 
-PharmaLens AI is an interactive cheminformatics and drug-discovery platform built with **Python, RDKit, Pandas, NumPy, Plotly, and Streamlit**.
-
-The platform provides a unified environment for molecular property analysis, drug-likeness evaluation, molecular similarity searching, chemical-space exploration, lead discovery, ADMET descriptor-based screening, batch analysis, and professional compound reporting.
-
-> **Note:** PharmaLens AI is an educational and research-oriented screening platform. Its ADMET assessments are descriptor-based computational interpretations and should not be considered experimentally validated, clinical, or regulatory predictions.
+PharmaLens AI is designed to demonstrate how computational chemistry and molecular descriptors can support early-stage drug discovery workflows through molecular analysis, similarity searching, lead filtering, ADMET screening, chemical-space exploration, and automated reporting.
 
 ---
 
-## Project Overview
+# Application Preview
 
-Drug discovery involves evaluating large numbers of chemical compounds using molecular descriptors, structural fingerprints, physicochemical properties, and drug-likeness rules.
+PharmaLens AI provides an interactive interface for molecular analysis, drug discovery, ADMET screening, chemical-space exploration, and computational reporting.
 
-PharmaLens AI brings several of these computational workflows into a single interactive application.
+## Dashboard
 
-Users can:
+![PharmaLens AI Dashboard](reports/screenshots/dashboard.png)
 
-* Analyze individual molecules from SMILES
-* Calculate important molecular descriptors
-* Visualize 2D molecular structures
-* Evaluate Lipinski's Rule of Five
-* Search compounds using molecular similarity
-* Explore chemical space
-* Compare multiple compounds
-* Filter compounds for lead-discovery workflows
-* Perform descriptor-based ADMET screening
-* Analyze multiple SMILES simultaneously
-* Generate professional compound reports
-* Explore drug-discovery datasets through interactive analytics
+## Molecular Analysis
+
+![Molecular Analysis](reports/screenshots/molecular.png)
+
+## Lead Discovery
+
+![Lead Discovery](reports/screenshots/lead.png)
+
+## ADMET Intelligence
+
+![ADMET Intelligence](reports/screenshots/admet.png)
+
+## ADMET Comparison
+
+![ADMET Comparison](reports/screenshots/admet2.png)
+
+## Chemical Space
+
+![Chemical Space](reports/screenshots/chemical.png)
+
+## Custom Molecule Analysis
+
+![Custom Molecule Analysis](reports/screenshots/custom.png)
+
+## Similarity Search
+
+![Similarity Search](reports/screenshots/similarity.png)
+
+## Drug-Likeness
+
+![Drug-Likeness](reports/screenshots/druglikeness.png)
+
+## Professional Reports
+
+![Compound Report Generator](reports/screenshots/report.png)
+
+---
+
+# Overview
+
+PharmaLens AI is a portfolio-oriented computational drug discovery application that combines cheminformatics, molecular descriptors, similarity analysis, rule-based ADMET screening, and interactive data visualization into a single Streamlit platform.
+
+The application allows users to investigate chemical structures and compare compounds using commonly used molecular properties and computational screening techniques.
 
 ---
 
 # Key Features
 
-## 1. Molecular Analysis
+## Molecular Analysis
 
-Analyze a molecule directly from its SMILES representation.
+Analyze individual compounds using SMILES input and calculate:
 
-Calculated properties include:
-
-* Molecular Weight
-* LogP
-* TPSA
-* Hydrogen Bond Donors
-* Hydrogen Bond Acceptors
-* Rotatable Bonds
-* Aromatic Rings
-* Heavy Atoms
-* Fraction Csp3
-* Molecular Formula
-* InChI Key
-
-A 2D molecular structure is also generated using RDKit.
+- Molecular Weight
+- LogP
+- TPSA
+- Hydrogen Bond Donors
+- Hydrogen Bond Acceptors
+- Rotatable Bonds
+- Aromatic Rings
+- Heavy Atoms
+- Fraction Csp3
+- Molecular Formula
+- InChI Key
 
 ---
 
-## 2. Drug-Likeness Analysis
+## Lipinski Drug-Likeness
 
-PharmaLens evaluates compounds using **Lipinski's Rule of Five**.
+Evaluate compounds using Lipinski's Rule of Five:
 
-The application evaluates:
-
-* Molecular Weight
-* LogP
-* Hydrogen Bond Donors
-* Hydrogen Bond Acceptors
-
-The result is presented as an overall drug-likeness screening status along with the individual rule checks.
+- Molecular Weight
+- LogP
+- Hydrogen Bond Donors
+- Hydrogen Bond Acceptors
+- Rule-of-Five violations
+- Overall Lipinski status
 
 ---
 
-## 3. Molecular Similarity Search
+## Molecular Similarity Search
 
-PharmaLens uses **Morgan molecular fingerprints** and **Tanimoto similarity** to identify structurally similar compounds.
+Perform Morgan fingerprint-based similarity searching using:
 
-Current fingerprint configuration:
+- Morgan fingerprints
+- Radius = 2
+- 2048 fingerprint bits
+- Tanimoto similarity
 
-* Fingerprint type: Morgan
-* Radius: 2
-* Fingerprint size: 2048 bits
-* Similarity metric: Tanimoto similarity
-
-Users can enter a query SMILES and search the compound database for structurally similar molecules.
+The application compares a query molecule against compounds in the PharmaLens database.
 
 ---
 
-## 4. Compound Comparison
+## Chemical Space Exploration
+
+Explore the structural relationships between compounds using molecular fingerprints and dimensionality reduction.
+
+The interactive visualization allows users to:
+
+- Explore compound clusters
+- Identify structurally related molecules
+- Hover over compounds for additional information
+- Zoom and pan through chemical space
+
+---
+
+## Lead Discovery
+
+Filter compounds using molecular-property constraints such as:
+
+- Molecular Weight
+- LogP
+- TPSA
+- HBD
+- HBA
+- Rotatable Bonds
+- Compound category
+- Lipinski status
+
+This provides a simple computational workflow for prioritizing compounds for further investigation.
+
+---
+
+## ADMET Intelligence
+
+PharmaLens AI provides descriptor-based ADMET screening across:
+
+- Absorption
+- Distribution
+- Metabolism
+- Excretion
+- Toxicity
+
+The system provides:
+
+- Domain-level screening status
+- Descriptor flags
+- ADMET profile visualization
+- Overall descriptor screening score
+
+> ADMET outputs are computational screening indicators based on molecular descriptors. They are not experimental measurements, clinical predictions, or validated pharmacokinetic/toxicity models.
+
+---
+
+## ADMET Comparison
 
 Compare multiple compounds side-by-side using:
 
-* Molecular Weight
-* LogP
-* TPSA
-* HBD
-* HBA
-* Rotatable Bonds
-* Aromatic Rings
-* Lipinski status
-* Molecular structures
-
-This provides a convenient way to inspect molecular-property differences between compounds.
+- ADMET domain statuses
+- Descriptor screening scores
+- Molecular descriptors
+- ADMET profile visualization
+- Molecular structures
+- Descriptor flags
 
 ---
 
-## 5. Chemical Space Exploration
+## Batch SMILES Analyzer
 
-PharmaLens provides a 2D visualization of molecular chemical space using molecular fingerprint-derived structural features.
+Analyze multiple molecules simultaneously by providing one SMILES string per line.
 
-Interactive Plotly visualization allows users to:
+The analyzer generates:
 
-* Zoom
-* Pan
-* Hover over compounds
-* Inspect compound names
-* View molecular categories
-* Examine selected molecular descriptors
-
-The plotted coordinates represent structural relationships and should not be interpreted as direct physical properties.
+- Molecular descriptors
+- Lipinski status
+- Molecular formulas
+- Compound statistics
+- Valid/invalid SMILES counts
+- CSV export
 
 ---
 
-## 6. Lead Discovery
+## Compound Report Generator
 
-The Lead Discovery module allows compounds to be filtered using molecular-property criteria.
+Generate computational compound reports containing:
 
-Available filters include:
+- Molecular structure
+- SMILES
+- Molecular Formula
+- InChI Key
+- Molecular descriptors
+- Lipinski analysis
+- ADMET screening
+- Descriptor flags
+- ADMET profile
+- Scientific disclaimer
 
-* Molecular Weight
-* LogP
-* TPSA
-* HBD
-* HBA
-* Rotatable Bonds
-* Compound Category
-* Lipinski status
-
-The filtered compound set can then be inspected as a potential computational starting point for further investigation.
-
----
-
-## 7. ADMET Intelligence
-
-PharmaLens provides a descriptor-based ADMET screening layer covering:
-
-### Absorption
-
-Evaluates molecular descriptors associated with absorption-related behavior.
-
-### Distribution
-
-Screens descriptor patterns associated with molecular distribution.
-
-### Metabolism
-
-Evaluates structural and descriptor-based indicators related to metabolic concerns.
-
-### Excretion
-
-Provides a descriptor-based interpretation of molecular properties relevant to elimination.
-
-### Toxicity
-
-Flags selected molecular-property patterns associated with potential toxicity concerns.
-
-The module provides:
-
-* Domain-level status
-* Descriptor flags
-* Screening scores
-* ADMET profile visualization
-* Molecular descriptor summary
-
-These results are intended for computational screening and educational interpretation, not clinical prediction.
+Reports can be exported as text and professional PDF documents.
 
 ---
 
-## 8. ADMET Comparison
+## Drug Discovery Analytics
 
-Multiple compounds can be compared across ADMET domains.
+Interactive analytics dashboard containing:
 
-The comparison includes:
-
-* Absorption
-* Distribution
-* Metabolism
-* Excretion
-* Toxicity
-* Descriptor screening score
-* Molecular descriptors
-* Descriptor flags
-* ADMET profile visualization
-
----
-
-## 9. Batch SMILES Analyzer
-
-Users can provide multiple SMILES strings for simultaneous analysis.
-
-For each valid molecule, PharmaLens calculates:
-
-* Molecular Formula
-* Molecular Weight
-* LogP
-* TPSA
-* HBD
-* HBA
-* Rotatable Bonds
-* Aromatic Rings
-* Heavy Atoms
-* Fraction Csp3
-* Lipinski status
-
-The resulting dataset can be exported as a CSV file.
-
-Invalid SMILES entries are separately identified.
+- Molecular Weight distributions
+- LogP distributions
+- TPSA distributions
+- Fraction Csp3 distributions
+- Property relationship plots
+- Category analytics
+- Compound rankings
+- Lipinski distribution
+- Correlation analysis
+- Filtered dataset export
 
 ---
 
-## 10. Drug Discovery Analytics
+# Scientific Methodology
 
-The analytics dashboard provides interactive exploration of the compound database.
+PharmaLens AI uses established cheminformatics approaches for molecular representation and descriptor calculation.
 
-Available analyses include:
+### Molecular Descriptors
 
-* Molecular Weight distribution
-* LogP distribution
-* TPSA distribution
-* Fraction Csp3 distribution
-* Property relationship analysis
-* Category-level statistics
-* Compound ranking
-* Lipinski distribution
-* Lipinski pass rate
-* Descriptor correlation matrix
-* Filtered dataset export
+RDKit is used to calculate molecular properties including:
 
-Supported property relationships include:
+- Molecular Weight
+- LogP
+- TPSA
+- Hydrogen Bond Donors
+- Hydrogen Bond Acceptors
+- Rotatable Bonds
+- Aromatic Rings
+- Heavy Atoms
+- Fraction Csp3
 
-* Molecular Weight vs LogP
-* Molecular Weight vs TPSA
-* LogP vs TPSA
-* TPSA vs HBD
-* Molecular Weight vs Rotatable Bonds
+### Molecular Fingerprints
 
----
+Molecules are represented using Morgan fingerprints generated with:
 
-## 11. Compound Report Generator
+- Radius: 2
+- Fingerprint size: 2048 bits
 
-PharmaLens can generate detailed compound reports containing:
+### Molecular Similarity
 
-* Compound information
-* Molecular structure
-* SMILES
-* Molecular Formula
-* InChI Key
-* Molecular descriptors
-* Lipinski analysis
-* ADMET screening
-* Descriptor flags
-* ADMET profile
-* Scientific disclaimer
+Tanimoto similarity is used to compare molecular fingerprints.
 
-Reports can be exported as text files or generated as professional PDF reports.
+### Drug-Likeness
+
+Lipinski's Rule of Five is used as a basic computational drug-likeness screening framework.
+
+### ADMET Screening
+
+ADMET Intelligence uses descriptor-based heuristic rules to flag potentially relevant molecular-property patterns.
+
+These outputs are intended for educational and early-stage computational screening rather than experimental validation.
 
 ---
 
 # Technology Stack
 
-| Technology | Purpose                                |
-| ---------- | -------------------------------------- |
-| Python     | Core programming language              |
-| Streamlit  | Interactive web application            |
-| RDKit      | Cheminformatics and molecular analysis |
-| Pandas     | Data processing                        |
-| NumPy      | Numerical computation                  |
-| Plotly     | Interactive visualization              |
-| ReportLab  | PDF report generation                  |
-| Pytest     | Automated testing                      |
-| Git        | Version control                        |
-| GitHub     | Project hosting                        |
-
----
-
-# Molecular Analysis Methodology
-
-PharmaLens uses RDKit to convert SMILES strings into molecular representations.
-
-The general computational workflow is:
-
-```text
-SMILES Input
-     |
-     v
-RDKit Molecular Representation
-     |
-     +--------------------+
-     |                    |
-     v                    v
-Molecular Descriptors   Molecular Fingerprint
-     |                    |
-     |                    v
-     |              Similarity Search
-     |
-     +----------+
-     |          |
-     v          v
-Lipinski    ADMET Screening
-     |
-     v
-Drug-Likeness Assessment
-```
-
----
-
-# Molecular Descriptors
-
-The platform calculates several commonly used molecular descriptors.
-
-### Molecular Weight
-
-Represents the molecular mass of a compound in Daltons.
-
-### LogP
-
-Provides an estimate of lipophilicity based on the compound's partitioning behavior.
-
-### TPSA
-
-Topological Polar Surface Area provides an estimate of molecular polar surface characteristics.
-
-### HBD
-
-Hydrogen Bond Donors.
-
-### HBA
-
-Hydrogen Bond Acceptors.
-
-### Rotatable Bonds
-
-Provides an indication of molecular flexibility.
-
-### Aromatic Rings
-
-Counts aromatic ring systems identified by RDKit.
-
-### Heavy Atoms
-
-Counts non-hydrogen atoms in the molecule.
-
-### Fraction Csp3
-
-Represents the fraction of carbon atoms with sp3 hybridization.
-
----
-
-# Molecular Similarity Methodology
-
-PharmaLens generates Morgan fingerprints using:
-
-```text
-Radius = 2
-Fingerprint Size = 2048 bits
-```
-
-Similarity between molecular fingerprints is calculated using the **Tanimoto coefficient**.
-
-Conceptually:
-
-```text
-Similarity =
-Common fingerprint features
----------------------------
-Total fingerprint features
-```
-
-Higher similarity values indicate greater fingerprint overlap.
-
----
-
-# Lipinski Rule of Five
-
-PharmaLens uses four commonly evaluated Lipinski descriptors:
-
-```text
-Molecular Weight
-LogP
-Hydrogen Bond Donors
-Hydrogen Bond Acceptors
-```
-
-The module reports whether the compound satisfies the implemented screening criteria.
-
-Lipinski's rules are useful for early-stage drug-likeness screening but do not guarantee biological activity, efficacy, safety, or clinical success.
-
----
-
-# ADMET Screening
-
-The ADMET module uses molecular descriptors and structural information to produce rule-based computational screening interpretations.
-
-The five domains evaluated are:
-
-```text
-Absorption
-Distribution
-Metabolism
-Excretion
-Toxicity
-```
-
-The output is intended to help users identify compounds that may require further investigation.
-
-These results should be treated as **hypothesis-generating computational assessments**, not experimental measurements.
-
----
-
-# Dataset
-
-The project contains a curated compound database used for demonstration and computational analysis.
-
-The current application includes:
-
-* Compound names
-* SMILES representations
-* Compound categories
-* Molecular descriptors generated through RDKit
-
-The dataset is intended for educational and research-oriented computational workflows.
+| Technology | Purpose |
+|---|---|
+| Python | Core programming |
+| Streamlit | Interactive web application |
+| RDKit | Cheminformatics and molecular analysis |
+| Pandas | Data processing |
+| NumPy | Numerical computation |
+| Plotly | Interactive visualization |
+| ReportLab | PDF report generation |
+| Pytest | Automated testing |
+| Git | Version control |
+| GitHub | Project hosting |
 
 ---
 
@@ -443,201 +289,34 @@ pharmalens-ai/
 ├── main.py
 ├── README.md
 ├── requirements.txt
-├── .gitignore
+├── test_rdkit.py
 │
 ├── data/
 │   ├── compounds.csv
 │   └── drugs.json
 │
+├── models/
+│
+├── notebooks/
+│
 ├── reports/
 │   ├── aspirin_structure.png
-│   └── caffeine_structure.png
+│   ├── caffeine_structure.png
+│   └── screenshots/
+│       ├── dashboard.png
+│       ├── drug.png
+│       ├── molecular.png
+│       ├── lead.png
+│       ├── admet.png
+│       ├── admet2.png
+│       ├── chemical.png
+│       ├── custom.png
+│       ├── similarity.png
+│       ├── druglikeness.png
+│       └── report.png
 │
 ├── src/
-│   ├── drug_database.py
-│   ├── drug_input.py
-│   ├── drug_likeness.py
-│   ├── molecular_fingerprint.py
-│   ├── molecular_similarity.py
-│   ├── molecule_analyzer.py
-│   ├── molecule_visualizer.py
-│   └── similarity_search.py
+│   └── project modules
 │
 └── tests/
     └── test_pharmalens.py
-```
-
----
-
-# Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/pharmalens-ai.git
-```
-
-Move into the project directory:
-
-```bash
-cd pharmalens-ai
-```
-
-Create a virtual environment:
-
-```bash
-python -m venv .venv
-```
-
-Activate it on Windows:
-
-```powershell
-.venv\Scripts\Activate.ps1
-```
-
-Install the dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# Running the Application
-
-Start the Streamlit application:
-
-```bash
-streamlit run app.py
-```
-
-The application will open locally at:
-
-```text
-http://localhost:8501
-```
-
----
-
-# Testing
-
-The project includes automated tests using Pytest.
-
-Run:
-
-```bash
-pytest
-```
-
-The tests cover important PharmaLens molecular-analysis functionality.
-
----
-
-# Example Workflow
-
-A typical PharmaLens workflow can be:
-
-```text
-1. Enter a molecule using SMILES
-          ↓
-2. Generate molecular structure
-          ↓
-3. Calculate molecular descriptors
-          ↓
-4. Evaluate Lipinski drug-likeness
-          ↓
-5. Search molecular similarity
-          ↓
-6. Explore chemical space
-          ↓
-7. Evaluate descriptor-based ADMET profile
-          ↓
-8. Compare candidate compounds
-          ↓
-9. Generate a compound report
-```
-
----
-
-# Scientific Limitations
-
-PharmaLens AI is designed as a computational screening and educational platform.
-
-The results should not be interpreted as:
-
-* Clinical predictions
-* Experimental measurements
-* Regulatory assessments
-* Confirmed pharmacokinetic properties
-* Confirmed toxicity results
-* Proof of therapeutic efficacy
-
-Computational screening can help prioritize molecules for further investigation, but experimental validation remains essential.
-
----
-
-# Future Scope
-
-Potential future development areas include:
-
-* Larger compound libraries
-* Additional molecular descriptors
-* Advanced molecular visualization
-* External chemical databases
-* Molecular docking integration
-* QSAR modelling
-* More extensive ADMET datasets
-* Machine-learning-based property prediction
-* Structure-based drug discovery workflows
-* Cloud deployment
-* API-based molecular analysis
-
----
-
-# Project Status
-
-**Current status: Functional prototype / portfolio project**
-
-The current version focuses on:
-
-* Cheminformatics
-* Molecular descriptor analysis
-* Molecular similarity
-* Drug-likeness screening
-* Chemical-space visualization
-* Lead discovery workflows
-* Descriptor-based ADMET screening
-* Data analytics
-* Automated testing
-* Professional reporting
-
----
-
-# Disclaimer
-
-PharmaLens AI is an educational and research-oriented software project.
-
-Computational results are dependent on the underlying molecular representations, descriptors, rules, datasets, and algorithms used by the application. They should not be used as a substitute for experimental studies, professional scientific judgment, clinical evaluation, or regulatory assessment.
-
----
-
-# Author
-
-**Pankaj Chauhan**
-
-B.Tech Bioinformatics
-
-Interests:
-
-* Bioinformatics
-* Computational Biology
-* Cheminformatics
-* Drug Discovery
-* Artificial Intelligence
-* Machine Learning
-
----
-
-## PharmaLens AI
-
-**From molecular structure to computational drug-discovery insight.**
