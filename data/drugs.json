@@ -1,0 +1,22 @@
+{
+    "aspirin": {
+        "name": "Aspirin",
+        "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O"
+    },
+    "paracetamol": {
+        "name": "Paracetamol",
+        "smiles": "CC(=O)NC1=CC=C(C=C1)O"
+    },
+    "caffeine": {
+        "name": "Caffeine",
+        "smiles": "Cn1c(=O)c2c(ncn2C)n(C)c1=O"
+    },
+    "ibuprofen": {
+        "name": "Ibuprofen",
+        "smiles": "CC(C)CC1=CC=C(C=C1)C(C)C(=O)O"
+    },
+    "naproxen": {
+        "name": "Naproxen",
+        "smiles": "COC1=CC2=C(C=C1)C(=CC=C2)C(C)C(=O)O"
+    }
+}
